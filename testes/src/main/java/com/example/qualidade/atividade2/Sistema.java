@@ -9,9 +9,9 @@ public class Sistema {
             return "Valor inválido";
         }
 
-        if (usuario.getNome() != "" || nutricionista.getNome() != "") {
+        if (usuario.getNome() == "" || nutricionista.getNome() == "") {
             return "Campo em branco";
-        } else if (!usuario.getNome().contains(" ") || !nutricionista.getNome().contains(" ")) {
+        } else if (usuario.getNome().contains(" ") || nutricionista.getNome().contains(" ")) {
             return "Valor inválido";
         }
 
@@ -35,19 +35,21 @@ public class Sistema {
          * Entre 35 e 40: obesidade grau 2
          */
 
+         System.out.println(imc);
+
         if (imc < 16) {
             return "Magreza grave";
-        } else if (imc >= 16 || imc < 17) {
+        } else if (imc >= 16 & imc < 17) {
             return "Magreza moderada";
-        } else if (imc >= 17 || imc < 19) {
+        } else if (imc >= 17 & imc < 19) {
             return "Magreza leve";
-        } else if (imc >= 19 || imc < 25) {
+        } else if (imc >= 19 & imc < 25) {
             return "Saudável";
-        } else if (imc >= 25 || imc < 30) {
+        } else if (imc >= 25 & imc < 30) {
             return "Sobrepeso";
-        } else if (imc >= 30 || imc < 35) {
+        } else if (imc >= 30 & imc < 35) {
             return "Obesidade grau 1";
-        } else if (imc >= 35 || imc < 40) {
+        } else if (imc >= 35 & imc < 40) {
             return "Obesidade grau 2";
         }
 
