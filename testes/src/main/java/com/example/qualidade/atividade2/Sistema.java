@@ -35,8 +35,6 @@ public class Sistema {
          * Entre 35 e 40: obesidade grau 2
          */
 
-         System.out.println(imc);
-
         if (imc < 16) {
             return "Magreza grave";
         } else if (imc >= 16 & imc < 17) {
