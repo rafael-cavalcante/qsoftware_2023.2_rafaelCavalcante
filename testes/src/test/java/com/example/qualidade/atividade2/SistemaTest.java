@@ -33,7 +33,21 @@ public class SistemaTest {
     }
 
     @Test
-    public void tresNotasCinquenta() {
+    public void resultadoCampoEmBranco() {
+        this.usuario.setNome("");
+        this.usuario.setAltura(1.70);
+        this.usuario.setCpf("01808267435");
+        this.usuario.setPeso(50);
+
+        this.nutricionista.setNome("Sairo");
+        this.nutricionista.setCrn("AG123456");
+
+        String result = this.sistema.calcularImc(usuario, nutricionista);
+        assertTrue("Campo em branco" == result);
+    }
+
+    @Test
+    public void resultadoSaudavel() {
         this.usuario.setNome("Rafael");
         this.usuario.setAltura(1.7);
         this.usuario.setCpf("01808267435");
@@ -44,5 +58,89 @@ public class SistemaTest {
 
         String result = this.sistema.calcularImc(usuario, nutricionista);
         assertTrue("Saudável" == result);
+    }
+
+    @Test
+    public void resultadoSobrepeso() {
+        this.usuario.setNome("Gilwan");
+        this.usuario.setAltura(1.7);
+        this.usuario.setCpf("01808267435");
+        this.usuario.setPeso(80);
+
+        this.nutricionista.setNome("Sairo");
+        this.nutricionista.setCrn("AG123456");
+
+        String result = this.sistema.calcularImc(usuario, nutricionista);
+        assertTrue("Sobrepeso" == result);
+    }
+
+    @Test
+    public void resultadoObesidadeGrauUm() {
+        this.usuario.setNome("Gilwan");
+        this.usuario.setAltura(1.80);
+        this.usuario.setCpf("01808267435");
+        this.usuario.setPeso(110);
+
+        this.nutricionista.setNome("Sairo");
+        this.nutricionista.setCrn("AG123456");
+
+        String result = this.sistema.calcularImc(usuario, nutricionista);
+        assertTrue("Obesidade grau 1" == result);
+    }
+
+    @Test
+    public void resultadoObesidadeGrauDois() {
+        this.usuario.setNome("Gilwan");
+        this.usuario.setAltura(1.70);
+        this.usuario.setCpf("01808267435");
+        this.usuario.setPeso(110);
+
+        this.nutricionista.setNome("Sairo");
+        this.nutricionista.setCrn("AG123456");
+
+        String result = this.sistema.calcularImc(usuario, nutricionista);
+        assertTrue("Obesidade grau 2" == result);
+    }
+
+    @Test
+    public void resultadoMagrezaGrave() {
+        this.usuario.setNome("Gilwan");
+        this.usuario.setAltura(1.90);
+        this.usuario.setCpf("01808267435");
+        this.usuario.setPeso(50);
+
+        this.nutricionista.setNome("Sairo");
+        this.nutricionista.setCrn("AG123456");
+
+        String result = this.sistema.calcularImc(usuario, nutricionista);
+        assertTrue("Magreza grave" == result);
+    }
+
+    @Test
+    public void resultadoMagrezaLeve() {
+        this.usuario.setNome("Gilwan");
+        this.usuario.setAltura(1.90);
+        this.usuario.setCpf("01808267435");
+        this.usuario.setPeso(65);
+
+        this.nutricionista.setNome("Sairo");
+        this.nutricionista.setCrn("AG123456");
+
+        String result = this.sistema.calcularImc(usuario, nutricionista);
+        assertTrue("Magreza leve" == result);
+    }
+
+    @Test
+    public void resultadoMagrezaModerada() {
+        this.usuario.setNome("Gilwan");
+        this.usuario.setAltura(1.80);
+        this.usuario.setCpf("01808267435");
+        this.usuario.setPeso(55);
+
+        this.nutricionista.setNome("Sairo");
+        this.nutricionista.setCrn("AG123456");
+
+        String result = this.sistema.calcularImc(usuario, nutricionista);
+        assertTrue("Magreza moderada" == result);
     }
 }
