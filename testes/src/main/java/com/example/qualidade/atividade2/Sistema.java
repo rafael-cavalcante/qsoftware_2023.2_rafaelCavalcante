@@ -11,7 +11,7 @@ public class Sistema {
 
         if (usuario.getNome() == "" || nutricionista.getNome() == "") {
             return "Campo em branco";
-        } else if (usuario.getNome().contains(" ") || nutricionista.getNome().contains(" ")) {
+        } else if (!usuario.getNome().contains(" ") || !nutricionista.getNome().contains(" ")) {
             return "Valor inválido";
         }
 
